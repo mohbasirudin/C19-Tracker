@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Covid</string>
+
+    <string name="status_kasus">Kasus</string>
+    <string name="status_positif">Positif</string>
+    <string name="status_sembuh">Sembuh</string>
+    <string name="status_mati">Meninggal</string>
+    <string name="status_kritis">Kritis Serius</string>
+    <string name="status_persentase_global">Persentase Kasus (Global)</string>
+    <string name="status_persentase_mati">Persentase Meninggal</string>
+    <string name="status_populasi">Kasus Tiap 1 Juta Penduduk</string>
+</resources>
