@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/page_provinsi"
+    android:id="@+id/page_history"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite">
@@ -26,7 +26,7 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/provinsi_btn_back"
+                    android:id="@+id/history_btn_back"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginRight="@dimen/dimen_16dp"
@@ -34,68 +34,43 @@
                     android:src="@drawable/ic_arrow_back_dark" />
 
                 <TextView
+                    android:id="@+id/history_country"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Provinsi di Indonesia"
-                    android:textColor="@color/colorTextPrimary"
-                    android:textSize="@dimen/dimen_16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/provinsi_total"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="(0)"
+                    android:hint="Negara"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:textColor="@color/colorTextPrimary"
                     android:textColorHint="@color/colorTextPrimary"
                     android:textSize="@dimen/dimen_16sp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/history_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:textColorHint="@color/colorTextPrimary"
+                    android:hint="(0 Update)"/>
 
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/provinsi_lay_reload"
+        android:id="@+id/history_lay_reload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <androidx.core.widget.NestedScrollView
-            android:overScrollMode="never"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/history_recycleview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/provinsi_lay_chart"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/dimen_16dp"
-                    android:layout_marginTop="@dimen/dimen_16dp"
-                    android:layout_marginBottom="@dimen/dimen_8dp"
-                    app:cardCornerRadius="@dimen/dimen_8dp"
-                    app:cardElevation="2dp">
-
-                    <com.github.mikephil.charting.charts.PieChart
-                        android:id="@+id/provinsi_piechart"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="@dimen/dimen_16dp" />
-                </androidx.cardview.widget.CardView>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/provinsi_recycleview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:overScrollMode="never" />
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:overScrollMode="never" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

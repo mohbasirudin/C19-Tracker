@@ -9,10 +9,29 @@
     </style>
 
     <style name="line_grey">
-        <item name="android:background">@color/colorGrey</item>
+        <item name="android:background">@color/colorPrimaryLight</item>
         <item name="android:alpha">0.5</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.5dp</item>
     </style>
+
+    <style name="space_grey">
+        <item name="android:background">@color/colorPrimaryLight</item>
+        <item name="android:alpha">0.5</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_8dp</item>
+    </style>
+
+    <!-- set the rounded drawable as background to your bottom sheet -->
+    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/round_bottomsheet</item>
+    </style>
+
+    <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
 
 </resources>

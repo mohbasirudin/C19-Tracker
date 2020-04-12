@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <androidx.core.widget.NestedScrollView
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/profil_lay_image">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/pic_bg" />
+            </RelativeLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="-52dp"
+                android:src="@drawable/pic_profil"
+                app:civ_border_color="@color/colorWhite"
+                app:civ_border_width="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_24dp"
+                android:layout_marginTop="@dimen/dimen_12dp"
+                android:text="@string/profil_name"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/dimen_18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_24dp"
+                android:text="@string/profil_status"
+                android:textAlignment="center"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <View
+                style="@style/line_grey"
+                android:layout_marginHorizontal="@dimen/dimen_16dp"
+                android:layout_marginVertical="@dimen/dimen_24dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_16dp"
+                android:text="Kontak"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/dimen_16sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/profil_recycleview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_12dp"
+                android:overScrollMode="never" />
+
+            <View
+                style="@style/space_grey"
+                android:layout_marginVertical="@dimen/dimen_24dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_16dp"
+                android:text="Tentang Aplikasi"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/dimen_16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/profil_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_16dp"
+                android:layout_marginTop="12dp"
+                android:justificationMode="inter_word"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <View
+                style="@style/space_grey"
+                android:layout_marginVertical="@dimen/dimen_24dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_16dp"
+                android:text="Pengembangan"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/dimen_16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/profil_projek"
+                android:layout_width="match_parent"
+                android:justificationMode="inter_word"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_16dp"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/profil_btn_github"
+                android:layout_marginHorizontal="@dimen/dimen_16dp"
+                android:layout_marginVertical="@dimen/dimen_24dp"
+                android:background="@drawable/ripple_round_small_primary">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginHorizontal="@dimen/dimen_16dp"
+                    android:text="Lihat Projek di Github"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimen_14sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <ImageButton
+        android:id="@+id/profil_btn_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:background="@drawable/ripple_oval_primary"
+        android:src="@drawable/ic_arrow_back_white" />
+
+</RelativeLayout>

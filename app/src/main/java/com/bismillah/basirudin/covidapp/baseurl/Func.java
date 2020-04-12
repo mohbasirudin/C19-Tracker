@@ -1,13 +1,18 @@
 package com.bismillah.basirudin.covidapp.baseurl;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.io.ByteArrayOutputStream;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -66,7 +71,7 @@ public class Func {
     }
 
     public static String number(String harga) {
-        double dHarga = Double.valueOf(harga);
+        double dHarga = Double.valueOf(removeCharacter(harga));
         Locale locale = new Locale("in", "ID");
         NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
         return numberFormat.format(dHarga).replace("Rp", "");
@@ -96,5 +101,42 @@ public class Func {
         double b = Double.parseDouble(Func.removeCharacter(pembilang));
         double hasil = (b / a) * 100;
         return String.format("%." + i + "f", hasil);
+    }
+
+    public static String getTime(String format) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+        return dateFormat.format(new Date());
+    }
+
+    public static Uri bitmapToUri(Context context, Bitmap bitmap) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), bitmap, Func.getTime(Const.date_04), null);
+        return Uri.parse(path);
+    }
+
+    public static void openUrl(Context context, String kontak) {
+        Uri uri = null;
+        Intent intent;
+        switch (kontak) {
+            case Const.kontak_wa:
+                uri = Uri.parse("https://api.whatsapp.com/send?phone=6282332581431");
+                Intent intentWa = new Intent(Intent.ACTION_VIEW, uri);
+                intentWa.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intentWa);
+                break;
+            case Const.kontak_ig:
+                uri = Uri.parse("https://instagram.com/basirudin_");
+                intent = new Intent(Intent.ACTION_VIEW, uri);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+                break;
+            case Const.kontak_github:
+                uri = Uri.parse("https://github.com/mohbasirudin");
+                intent = new Intent(Intent.ACTION_VIEW, uri);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+                break;
+        }
     }
 }

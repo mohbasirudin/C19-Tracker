@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dimen_8dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:text="Diperbarui pada"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <TextView
+                android:id="@+id/list_history_waktu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="0000-00-00 00:00:00"
+                android:textColor="@color/colorTextPrimary"
+                android:textColorHint="@color/colorTextPrimary"
+                android:textSize="@dimen/dimen_14sp" />
+        </LinearLayout>
+
+        <View
+            style="@style/line_grey"
+            android:layout_marginVertical="@dimen/dimen_12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:id="@+id/list_history_kasus"
+            android:textAlignment="center"
+            android:textColor="@color/colorTextPrimary"
+            android:textColorHint="@color/colorTextPrimary"
+            android:textSize="@dimen/dimen_24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="KASUS"
+            android:layout_marginBottom="@dimen/dimen_12dp"
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="@dimen/dimen_12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/status_positif"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="@dimen/dimen_12sp" />
+
+                <TextView
+                    android:id="@+id/list_history_positif"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:hint="0"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorRed"
+                    android:textColorHint="@color/colorRed"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/list_history_positif_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:hint="+0"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorRed"
+                    android:textColorHint="@color/colorRed"
+                    android:textSize="@dimen/dimen_12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/status_sembuh"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="@dimen/dimen_12sp" />
+
+                <TextView
+                    android:id="@+id/list_history_sembuh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:hint="0"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorGreen"
+                    android:textColorHint="@color/colorGreen"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/status_mati"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="@dimen/dimen_12sp" />
+
+                <TextView
+                    android:id="@+id/list_history_mati"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:hint="0"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorGrey"
+                    android:textColorHint="@color/colorGrey"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/list_history_mati_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:hint="+0"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorGrey"
+                    android:textColorHint="@color/colorGrey"
+                    android:textSize="@dimen/dimen_12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View style="@style/space_grey" />
+
+</LinearLayout>

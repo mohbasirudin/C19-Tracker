@@ -2,15 +2,17 @@ package com.bismillah.basirudin.covidapp.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.bismillah.basirudin.covidapp.R;
@@ -19,11 +21,10 @@ import com.bismillah.basirudin.covidapp.api.ApiService;
 import com.bismillah.basirudin.covidapp.api.ApiUtil;
 import com.bismillah.basirudin.covidapp.baseurl.Const;
 import com.bismillah.basirudin.covidapp.baseurl.Func;
-import com.bismillah.basirudin.covidapp.model.covid_02.country.detail.LatestStatByCountryItem;
-import com.bismillah.basirudin.covidapp.model.covid_02.country.detail.ModelCountryDetail;
 import com.bismillah.basirudin.covidapp.model.covid_02.country.list.CountriesStatItem;
 import com.bismillah.basirudin.covidapp.model.covid_02.country.list.ModelCountryList;
 import com.bismillah.basirudin.covidapp.model.covid_02.total.ModelTotal;
+import com.bismillah.basirudin.covidapp.view.menu.PageProfil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,8 @@ import retrofit2.Response;
 public class PageMain extends AppCompatActivity {
     @BindView(R.id.main_lay_reload)
     SwipeRefreshLayout layReload;
+    @BindView(R.id.main_btn_info)
+    ImageButton btnInfo;
     //    global
     @BindView(R.id.main_kasus)
     TextView txtKasus;
@@ -234,7 +237,10 @@ public class PageMain extends AppCompatActivity {
 
     @OnClick(R.id.main_ina_btn_detail)
     void inaRiwayat() {
-        snackbar("detail");
+        Intent intent = new Intent(getApplicationContext(), PageHistory.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra(Const.send_country, Const.country_indonesia);
+        startActivity(intent);
     }
 
     @OnClick(R.id.main_ina_btn_provinsi)
@@ -250,7 +256,23 @@ public class PageMain extends AppCompatActivity {
 
     @OnClick(R.id.main_btn_info)
     void info() {
-        snackbar("info");
+        PopupMenu popupMenu = new PopupMenu(PageMain.this, btnInfo);
+        popupMenu.getMenuInflater().inflate(R.menu.menu_main, popupMenu.getMenu());
+        popupMenu.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.menu_main_profil:
+                    pindah(PageProfil.class);
+                    break;
+            }
+            return true;
+        });
+        popupMenu.show();
+    }
+
+    private void pindah(Class aClass) {
+        Intent intent = new Intent(getApplicationContext(), aClass);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     private void load() {
@@ -270,5 +292,19 @@ public class PageMain extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+    }
+
+    private boolean keluar = false;
+
+    @Override
+    public void onBackPressed() {
+        if (keluar) {
+            this.finishAffinity();
+        }
+
+        this.keluar = true;
+        Toast.makeText(this, "Tekan lagi untuk menutup", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(() -> keluar = false, 2000);
     }
 }

@@ -76,10 +76,10 @@ public class AdapterProvinsi extends RecyclerView.Adapter<AdapterProvinsi.ViewHo
             holder.perMati = Func.persen(totalMati, holder.mati, "2");
 
         holder.txtNama.setText(holder.nama);
-        holder.txtKasus.setText(holder.kasus + " Kasus");
-        holder.txtPositif.setText(holder.positif);
-        holder.txtSembuh.setText(holder.sembuh);
-        holder.txtMati.setText(holder.mati);
+        holder.txtKasus.setText(Func.number(holder.kasus) + " Kasus");
+        holder.txtPositif.setText(Func.number(holder.positif));
+        holder.txtSembuh.setText(Func.number(holder.sembuh));
+        holder.txtMati.setText(Func.number(holder.mati));
 
         holder.txtPerKasus.setText(holder.perKasus + "%");
         holder.txtPerPositif.setText(holder.perPositif + "%");

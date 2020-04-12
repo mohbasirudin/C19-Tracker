@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/menu_country"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <LinearLayout
+        android:id="@+id/layout_atas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dimen_16dp"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_marginRight="@dimen/dimen_8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/menu_country_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dimen_8dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:hint="Negara"
+                android:maxLines="1"
+                android:textColor="@color/colorTextPrimary"
+                android:textColorHint="@color/colorTextPrimary"
+                android:textSize="@dimen/dimen_16sp"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/menu_country_progressbar"
+                android:layout_width="@dimen/dimen_24dp"
+                android:layout_height="@dimen/dimen_24dp"
+                android:layout_marginHorizontal="@dimen/dimen_8dp"
+                android:indeterminateTint="@color/colorPrimary" />
+
+            <ImageButton
+                android:id="@+id/menu_country_btn_close"
+                android:layout_width="@dimen/dimen_32dp"
+                android:layout_height="@dimen/dimen_32dp"
+                android:background="@drawable/ripple_oval_white"
+                android:src="@drawable/ic_close_dark" />
+        </LinearLayout>
+
+        <View style="@style/line_grey" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout_atas">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_16dp"
+            android:layout_marginBottom="@dimen/dimen_24dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_24dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/status_kasus"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="@dimen/dimen_14sp" />
+
+                <TextView
+                    android:id="@+id/menu_country_persentase_kasus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_8dp"
+                    android:hint="(0% dari Global)"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textColorHint="@color/colorTextPrimary"
+                    android:textSize="@dimen/dimen_12sp" />
+
+                <TextView
+                    android:id="@+id/menu_country_kasus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="0"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textColorHint="@color/colorTextPrimary"
+                    android:textSize="@dimen/dimen_14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <View
+                style="@style/line_grey"
+                android:layout_marginVertical="@dimen/dimen_24dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/status_positif"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="@dimen/dimen_14sp" />
+
+                <TextView
+                    android:id="@+id/menu_country_positif_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_8dp"
+                    android:hint="(+0)"
+                    android:textColor="@color/colorRed"
+                    android:textColorHint="@color/colorRed"
+                    android:textSize="@dimen/dimen_12sp" />
+
+                <TextView
+                    android:id="@+id/menu_country_positif"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="0"
+                    android:textColor="@color/colorRed"
+                    android:textColorHint="@color/colorRed"
+                    android:textSize="@dimen/dimen_14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                style="@style/line_grey"
+                android:layout_marginVertical="@dimen/dimen_24dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimen_8dp"
+                    android:layout_weight="1"
+                    android:text="@string/status_kritis"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="@dimen/dimen_14sp" />
+
+                <TextView
+                    android:id="@+id/menu_country_kritis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="0"
+                    android:textColor="@color/colorYellow"
+                    android:textColorHint="@color/colorYellow"
+                    android:textSize="@dimen/dimen_14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                style="@style/line_grey"
+                android:layout_marginVertical="@dimen/dimen_24dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/status_sembuh"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="@dimen/dimen_14sp" />
+
+                <TextView
+                    android:id="@+id/menu_country_persentase_sembuh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_8dp"
+                    android:hint="(0%)"
+                    android:textColor="@color/colorGreen"
+                    android:textColorHint="@color/colorGreen"
+                    android:textSize="@dimen/dimen_12sp" />
+
+                <TextView
+                    android:id="@+id/menu_country_sembuh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="0"
+                    android:textColor="@color/colorGreen"
+                    android:textColorHint="@color/colorGreen"
+                    android:textSize="@dimen/dimen_14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                style="@style/line_grey"
+                android:layout_marginVertical="@dimen/dimen_24dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/status_mati"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="@dimen/dimen_14sp" />
+
+                <TextView
+                    android:id="@+id/menu_country_persentase_mati"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_8dp"
+                    android:hint="(0%)"
+                    android:textColor="@color/colorGrey"
+                    android:textColorHint="@color/colorGrey"
+                    android:textSize="@dimen/dimen_12sp" />
+
+                <TextView
+                    android:id="@+id/menu_country_mati_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_8dp"
+                    android:hint="(+0)"
+                    android:textColor="@color/colorGrey"
+                    android:textColorHint="@color/colorGrey"
+                    android:textSize="@dimen/dimen_12sp" />
+
+                <TextView
+                    android:id="@+id/menu_country_mati"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="0"
+                    android:textColor="@color/colorGrey"
+                    android:textColorHint="@color/colorGrey"
+                    android:textSize="@dimen/dimen_14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                style="@style/line_grey"
+                android:layout_marginVertical="@dimen/dimen_24dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimen_8dp"
+                    android:layout_weight="1"
+                    android:text="@string/status_populasi"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="@dimen/dimen_14sp" />
+
+                <TextView
+                    android:id="@+id/menu_country_populasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="0"
+                    android:textColor="@color/colorGrey"
+                    android:textColorHint="@color/colorGrey"
+                    android:textSize="@dimen/dimen_14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_48dp"
+                android:layout_marginBottom="@dimen/dimen_24dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/menu_country_btn_riwayat"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="@dimen/dimen_8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/ripple_round_small_primary">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Lihat Riwayat"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/dimen_16sp" />
+
+                </RelativeLayout>
+
+                <ImageButton
+                    android:id="@+id/menu_country_btn_reload"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/ripple_round_small_primary"
+                    android:src="@drawable/ic_sync_white" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

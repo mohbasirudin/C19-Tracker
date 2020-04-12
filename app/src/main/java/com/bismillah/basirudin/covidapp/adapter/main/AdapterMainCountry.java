@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,13 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bismillah.basirudin.covidapp.R;
+import com.bismillah.basirudin.covidapp.baseurl.Const;
 import com.bismillah.basirudin.covidapp.baseurl.Func;
 import com.bismillah.basirudin.covidapp.model.covid_02.country.list.CountriesStatItem;
+import com.bismillah.basirudin.covidapp.view.PageMain;
+import com.bismillah.basirudin.covidapp.view.country.MenuCountry;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class AdapterMainCountry extends RecyclerView.Adapter<AdapterMainCountry.ViewHolder> {
     private Context context;
@@ -42,6 +47,7 @@ public class AdapterMainCountry extends RecyclerView.Adapter<AdapterMainCountry.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CountriesStatItem item = statItems.get(position);
 
+        holder.layout.setVisibility(View.VISIBLE);
         holder.sNama = item.getCountryName();
         holder.sKasus = Func.number(Func.removeCharacter(item.getCases()));
         holder.sNewKasus = "(+" + Func.number(Func.removeCharacter(item.getNewCases())) + ")";
@@ -50,12 +56,12 @@ public class AdapterMainCountry extends RecyclerView.Adapter<AdapterMainCountry.
                 || holder.sPerKasus.equalsIgnoreCase("0.00%"))
             holder.sPerKasus = Func.persen(totalKasus, holder.sKasus, "4") + "%";
 
-        holder.txtNama.setText(holder.sNama);
+        if (!holder.sNama.isEmpty()) holder.txtNama.setText(holder.sNama);
+        else holder.txtNama.setText(Const.data_undefined);
+
         holder.txtKasus.setText(holder.sKasus);
         holder.txtNewKasus.setText(holder.sNewKasus);
         holder.txtPerKase.setText(holder.sPerKasus);
-
-        holder.btnDetail.setOnClickListener(v -> Toast.makeText(context, "Detail", Toast.LENGTH_SHORT).show());
     }
 
     @Override
@@ -74,15 +80,22 @@ public class AdapterMainCountry extends RecyclerView.Adapter<AdapterMainCountry.
         TextView txtPerKase;
         @BindView(R.id.list_main_country_kasus_btn_detail)
         ImageButton btnDetail;
+        @BindView(R.id.list_main_country)
+        RelativeLayout layout;
 
         private String sKasus = "", sNama = "", sNewKasus = "", sPerKasus;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+        }
 
-            itemView.setOnClickListener(v ->
-                    Toast.makeText(context, sNama, Toast.LENGTH_SHORT).show());
+        @OnClick(R.id.list_main_country_kasus_btn_detail)
+        void detailCountry() {
+            MenuCountry menuCountry = new MenuCountry();
+            menuCountry.setCancelable(true);
+            menuCountry.getData(sNama, totalKasus);
+            menuCountry.show(((PageMain) context).getSupportFragmentManager(), AdapterMainCountry.class.getSimpleName());
         }
     }
 }

@@ -2,6 +2,7 @@ package com.bismillah.basirudin.covidapp.api;
 
 import com.bismillah.basirudin.covidapp.BuildConfig;
 import com.bismillah.basirudin.covidapp.model.covid_01.statistic.ModelStatistic;
+import com.bismillah.basirudin.covidapp.model.covid_02.Particular.list.ModelParticularList;
 import com.bismillah.basirudin.covidapp.model.covid_02.country.detail.ModelCountryDetail;
 import com.bismillah.basirudin.covidapp.model.covid_02.country.list.ModelCountryList;
 import com.bismillah.basirudin.covidapp.model.covid_02.total.ModelTotal;
@@ -42,15 +43,11 @@ public interface ApiService {
     @Headers({"x-rapidapi-key: " + BuildConfig.api_rapid,
             "x-rapidapi-host: " + host_02})
     @GET("cases_by_particular_country.php")
-    Call<ModelCountryList> getParticular(@Query("country") String country);
+    Call<ModelParticularList> getParticular(@Query("country") String country);
 
     @Headers({"x-rapidapi-key: " + BuildConfig.api_rapid,
             "x-rapidapi-host: " + host_02})
     @GET("history_by_particular_country_by_date.php")
-    Call<ModelCountryList> getParticular(@Query("country") String country,
+    Call<ModelParticularList> getParticular(@Query("country") String country,
                                          @Query("date") String date);
-
-    //    COVID 03
-    @GET("{country}/provinsi")
-    Call<ModelProvinsi> getProvinsi(@Path("country") String country);
 }
